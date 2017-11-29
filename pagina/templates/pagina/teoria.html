@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'pagina/css/materialize.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'pagina/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'pagina/css/inside-pages.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TCC - Larissa Barra Conde</title>
+</head>
+<body>
+  <header>
+    <nav class="top-nav">
+      <div class="container">
+        <div class="nav-wrapper"><a class="page-title">A teoria</a></div>
+      </div>
+    </nav>
+    <div class="container">
+      <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+    <ul id="nav-mobile" class="side-nav fixed">
+      <div id="txt-nav">
+        <span id="txt-ajuda-nav">Ajuda, </span>
+        <span id="txt-e-nav">é </span>
+        <span id="txt-pro-nav">pro </span>
+        <span id="txt-meu-nav">meu </span>
+        <span id="txt-tcc-nav">TCC!</span>
+      </div>
+      <li><a href="{% url 'tcc:index' %}">Início</a></li>
+      <li><a href="{% url 'tcc:proposta' %}">A proposta</a></li>
+      <li class="active"><a href="{% url 'tcc:teoria' %}">A teoria</a></li>
+      <li><a href="{% url 'tcc:algoritmo' %}">O algoritmo</a></li>
+      <li><a href="{% url 'tcc:teste' %}">Faça um teste</a></li>
+      <li><a href="{% url 'tcc:avalie' %}">Avalie resumos</a></li>
+    </ul>
+  </header>
+  <main>
+    <div class="container">
+      <br/><br/>
+      <span class="comment">Então, para entender a proposta, precisamos de uns conceitinhos!</span>
+      <p style="margin:0">Afinal, não dá para entender nada. Sem problemas, agora vai dar!</p>
+      <br/>
+      <h4 name="pln">Processamento de Linguagem Natural</h4>
+      <p>Ou Natural Language Processing, ou NLP, é uma área da Computação que se dedica à compreensão e interação dos computadores com linguagens humanas, ou naturais. Existem várias tarefas dentro dessa área, como a sumarização, a transformação de texto para áudio e vice versa, entre outras.</p>
+      <br/>
+      <h4 name="sumarizacao">Sumarização automática</h4>
+      <p>Sumarização automática é uma tarefa da NLP que se propõe a receber um texto (ou áudio, ou vídeo) como entrada e retornar um resumo dele, gerado automaticamente.</p>
+      <p>Particularmente a sumarização automática <strong>extrativa</strong> gera esse resumo extraindo as partes mais pertinentes / importantes do conteúdo recebido.</p>
+      <br/>
+      <h4 name="pre">Pré-processamento</h4>
+      <p>Algumas tarefas de NLP tem em comum uma fase de pré-processamento do texto recebido. Ou seja, o texto recebe um tratamento antes de passar pro algoritmo de fato.</p>
+      <p>Essa fase inclui a remoção de <strong>stopwords</strong>, que são palavras que não tem importância na sintática do texto, e, por geralmente serem frequentes, podem atrapalhar os resultados. Artigos são um bom exemplo. Depois da remoção, é realizado o processo de <strong>stemming</strong>, que é a redução das palavras restantes ao seu radical. Assim, pequenas variações são agrupadas, reforçando a semântica do termo. Por exemplo, "casa" e "casas" serão reduzidas a "cas", e serão consideradas duas ocorrências desse termo.</p>
+      <br/>
+      <h4 name="textrank">TextRank</h4>
+      <p>É o algoritmo no qual meu trabalho se baseia. Desenvolvido por Rada Mihalcea e Paul Tarau, inspirado no PageRank, da Google, o TextRank separa o texto em sentenças e estabelece relações entre elas de forma que as sentenças parecidas se fortaleçam. Com algumas sentenças ganhando destaque dado por outras, é possível selecionar as mais importantes e formar um resumo. Ele também pode ser usado para selecionar palavras-chave, é só dividir o texto em palavras em vez de sentenças.</p>
+      <p>O artigo original pode ser encontrado <a href="https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf" target="_blank">aqui</a>.</p>
+      <br/>
+    </div>
+  </main>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Larissa Barra Conde</h5>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Engenharia de Computação 2017/2 - CEFET-MG
+      </div>
+    </div>
+  </footer>
+
+{% block footer %}
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="{% static 'pagina/js/materialize.min.js' %}"></script>
+  <script type="text/javascript">
+    $('.button-collapse').sideNav({
+        menuWidth: 300, // Default is 300
+        edge: 'left', // Choose the horizontal origin
+        closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        draggable: true
+    });
+  </script>
+{% endblock %}
+</body>
+</html>

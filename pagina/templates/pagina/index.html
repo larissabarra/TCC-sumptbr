@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'pagina/css/materialize.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'pagina/css/style.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TCC - Larissa Barra Conde</title>
+</head>
+<body>
+<main>
+  <div class="main-left flex-container">
+    <div id="txt-container" class="flex-container">
+      <div id="txt-capa">
+        <span id="txt-ajuda">Ajuda, </span>
+        <span id="txt-e">é </span>
+        <span id="txt-pro">pro </span>
+        <span id="txt-meu">meu </span>
+        <span id="txt-tcc">TCC!</span>
+      </div>
+      <p>O orientador não deu a louca e pediu 1500 respostas para amanhã, mas para mês que vem eu preciso! Me dá um help? :D</p>
+    </div>
+  </div>
+  <div class="main-nav navs flex-container">
+    <div class="content-bg">
+      <ul>
+        <li><a href="{% url 'tcc:proposta' %}">A proposta</a></li>
+        <li><a href="{% url 'tcc:teoria' %}">A teoria</a></li>
+        <li><a href="{% url 'tcc:algoritmo' %}">O algoritmo</a></li>
+        <li class="link-destaque"><a href="{% url 'tcc:teste' %}">Faça um teste</a></li>
+        <li class="link-destaque"><a href="{% url 'tcc:avalie' %}">Avalie resumos</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="clear"></div>
+</main>
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Larissa Barra Conde</h5>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    Engenharia de Computação 2017/2 - CEFET-MG
+    </div>
+  </div>
+</footer>
+
+{% block footer %}
+  <script type="text/javascript" src="{% static 'pagina/js/jquery-3.2.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'pagina/js/materialize.min.js' %}"></script>
+{% endblock %}
+</body>
+</html>

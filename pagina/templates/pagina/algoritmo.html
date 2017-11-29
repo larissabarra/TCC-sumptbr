@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'pagina/css/materialize.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'pagina/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'pagina/css/inside-pages.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TCC - Larissa Barra Conde</title>
+</head>
+<body>
+  <header>
+    <nav class="top-nav">
+      <div class="container">
+        <div class="nav-wrapper"><a class="page-title">O algoritmo</a></div>
+      </div>
+    </nav>
+    <div class="container">
+      <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+    <ul id="nav-mobile" class="side-nav fixed">
+      <div id="txt-nav">
+        <span id="txt-ajuda-nav">Ajuda, </span>
+        <span id="txt-e-nav">é </span>
+        <span id="txt-pro-nav">pro </span>
+        <span id="txt-meu-nav">meu </span>
+        <span id="txt-tcc-nav">TCC!</span>
+      </div>
+      <li><a href="{% url 'tcc:index' %}">Início</a></li>
+      <li><a href="{% url 'tcc:proposta' %}">A proposta</a></li>
+      <li><a href="{% url 'tcc:teoria' %}">A teoria</a></li>
+      <li class="active"><a href="{% url 'tcc:algoritmo' %}">O algoritmo</a></li>
+      <li><a href="{% url 'tcc:teste' %}">Faça um teste</a></li>
+      <li><a href="{% url 'tcc:avalie' %}">Avalie resumos</a></li>
+    </ul>
+  </header>
+  <main>
+    <div class="container">
+      <br/>
+      <h4>O que muda nesse trabalho?</h4>
+      <p>A princípio não parece muita coisa, mas acaba fazendo diferença. Dado um texto, o processo é o mesmo do TextRank, mas com alguns adicionais:</p>
+      <p>
+        <ul class="ul-normal">
+          <li class="li-normal">Separo em parágrafos, considerando as quebras de linha como um separador de parágrafos;</li>
+          <li class="li-normal">Separo em frases <span class="destaque">tomando cuidado com as abreviações</span>, não simplesmente dividindo em todos os pontos finais;</li>
+          <li class="li-normal">De cada frase, guardo para processar apenas os termos que não são <span class="destaque">stopwords de português</span>;</li>
+          <li class="li-normal">Desses termos que ficam, faço o processo de <span class="destaque">stemming usando o STEMBR, um algoritmo específico para português</span> desenvolvido pelos alunos Reinaldo Viana Alvares, Ana Cristina Bicharra Garcia, e Inhaúma Ferraz da Universidade Federal Fluminense em 2005;</li>
+          <li class="li-normal">Para calcular a similaridade de cada par de frases, segui como o TextRank: observando os stems em comum entre as duas;</li>
+          <li class="li-normal">Já para calcular o peso de cada frase, eu dei uns pontinhos a mais para <span class="destaque">frases contendo termos iniciados em letra maiúscula (que, em português, são substantivos próprios), frases mais no início do parágrafo e parágrafos mais no início do texto</span>;</li>
+          <li class="li-normal">Depois disso, só reproduzi o TextRank;</li>
+        </ul>
+      </p>
+    </div>
+  </main>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Larissa Barra Conde</h5>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Engenharia de Computação 2017/2 - CEFET-MG
+      </div>
+    </div>
+  </footer>
+
+{% block footer %}
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="{% static 'pagina/js/materialize.min.js' %}"></script>
+  <script type="text/javascript">
+    $('.button-collapse').sideNav({
+        menuWidth: 300, // Default is 300
+        edge: 'left', // Choose the horizontal origin
+        closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        draggable: true
+    });
+  </script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load filters %}
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'pagina/css/materialize.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'pagina/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'pagina/css/inside-pages.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TCC - Larissa Barra Conde</title>
+</head>
+<body>
+  <header>
+    <nav class="top-nav">
+      <div class="container">
+        <div class="nav-wrapper"><a class="page-title">Obrigada!</a></div>
+      </div>
+    </nav>
+    <div class="container">
+      <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+    <ul id="nav-mobile" class="side-nav fixed">
+      <div id="txt-nav">
+        <span id="txt-ajuda-nav">Ajuda, </span>
+        <span id="txt-e-nav">é </span>
+        <span id="txt-pro-nav">pro </span>
+        <span id="txt-meu-nav">meu </span>
+        <span id="txt-tcc-nav">TCC!</span>
+      </div>
+      <li><a href="{% url 'tcc:index' %}">Início</a></li>
+      <li><a href="{% url 'tcc:proposta' %}">A proposta</a></li>
+      <li><a href="{% url 'tcc:teoria' %}">A teoria</a></li>
+      <li><a href="{% url 'tcc:algoritmo' %}">O algoritmo</a></li>
+      <li><a href="{% url 'tcc:teste' %}">Faça um teste</a></li>
+      <li><a href="{% url 'tcc:avalie' %}">Avalie resumos</a></li>
+    </ul>
+  </header>
+  <main>
+    <div class="container">
+      <h1>Obrigada! <3</h1>
+    </div>
+  </main>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Larissa Barra Conde</h5>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Engenharia de Computação 2017/2 - CEFET-MG
+      </div>
+    </div>
+  </footer>
+
+{% block footer %}
+  <script type="text/javascript" src="{% static 'pagina/js/jquery-3.2.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'pagina/js/materialize.min.js' %}"></script>
+  <script type="text/javascript">
+    $('.button-collapse').sideNav({
+        menuWidth: 300, // Default is 300
+        edge: 'left', // Choose the horizontal origin
+        closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        draggable: true
+    });
+  </script>
+{% endblock %}
+</body>
+</html>

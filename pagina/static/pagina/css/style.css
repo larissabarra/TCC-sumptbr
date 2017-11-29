@@ -1,0 +1,201 @@
+body {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+
+  -webkit-flex-direction: column;
+  flex-direction: column;
+
+  text-align: left;
+  min-height: 100vh;
+
+  padding: 0;
+  margin: 0;
+
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  max-height: 137px;
+}
+
+.page-footer{
+  background: #333;
+}
+.page-footer .footer-copyright {
+  background-color: rgba(1,1,1,0.08);
+}
+
+/* ==================== index ==================== */
+.main-left {
+  padding: 10%;
+  float: left;
+  background-color: #ee6e73;
+  height: calc(100vh - 137px);
+  width: 70%;
+}
+#txt-container {
+  flex-direction: column;
+}
+#txt-capa {
+  max-width: 100%;
+}
+#txt-capa span {
+  display: block;
+  color: #fff;
+  text-shadow: 3px 3px #c13d42;
+  font-family: 'Zilla Slab', serif;
+}
+#txt-container p {
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 3px #c13d42;
+}
+#txt-ajuda {
+  font-size: 5em;
+  transform: rotate(-5deg);
+}
+#txt-e {
+  font-size: 3rem;
+  margin-top: -3rem;
+  margin-left: 15rem;
+}
+#txt-pro {
+  font-size: 3rem;
+  margin-top: -2rem;
+  margin-left: 4rem;
+  position: relative;
+}
+#txt-meu {
+  font-size: 5rem;
+  margin-left: 2rem;
+  margin-top: -2rem;
+}
+#txt-tcc {
+  font-size: 10rem;
+  margin-left: 12rem;
+  margin-top: -10rem;
+  transform: rotate(7deg);
+}
+.main-nav {
+  float: right;
+  width: 30%;
+  padding: 5% 2%;
+  text-align: center;
+  height: calc(100vh - 137px);
+}
+.navs::after {
+  content: "";
+  background: url('/static/pagina/images/bookshelf.jpg');
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+li {
+  min-height: 3rem;
+}
+a {
+  font-family: 'Zilla Slab', serif;
+  font-size: 1.3rem;
+  color: #c13d42;
+}
+.content-bg {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  padding: 10%;
+  text-shadow: 1px 1px #ccc;
+}
+
+.clear {
+  clear: both;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+.material-icons {
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: 'liga';
+    -moz-font-feature-settings: 'liga';
+    font-feature-settings: 'liga';
+}
+
+.link-destaque {
+  border: 2px dashed #ee6e73;
+  border-radius: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 2.6rem;
+  background: rgba(238, 110, 115, 0.15);
+  padding: 0 10px;
+}
+
+.flex-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+@media only screen and (max-width: 780px) {
+  .main-left {
+    width: 100%;
+    height: auto;
+  }
+  #txt-ajuda {
+    font-size: 4rem;
+  }
+  #txt-e {
+    font-size: 3rem;
+    margin-top: -3rem;
+    margin-left: 13rem;
+  }
+  #txt-pro {
+    font-size: 3rem;
+    margin-top: -3rem;
+    margin-left: 3rem;
+  }
+  #txt-meu {
+    font-size: 4rem;
+    margin-left: 1rem;
+    margin-top: -2rem;
+  }
+  #txt-tcc {
+    font-size: 6rem;
+    margin-left: 9rem;
+    margin-top: -8rem;
+  }
+  .main-nav {
+    width: 100%;
+    height: auto;
+  }
+}

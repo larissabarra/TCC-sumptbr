@@ -1,0 +1,132 @@
+header, main, footer {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .hide-on-large-only {
+    display: none !important;
+  }
+}
+a.button-collapse.top-nav {
+  position: absolute;
+  text-align: center;
+  height: 48px;
+  width: 48px;
+  left: 7.5%;
+  top: 0;
+  float: none;
+  color: #fff;
+  font-size: 36px;
+  z-index: 2;
+}
+
+.nav-wrapper {
+  text-align: center;
+}
+#txt-nav {
+  padding: 1rem 2rem;
+}
+#txt-nav span {
+  display: block;
+  color: #ee6e73;
+  text-shadow: 1px 1px #c13d42;
+  font-family: 'Zilla Slab', serif;
+}
+#txt-ajuda-nav {
+  font-size: 2em;
+  transform: rotate(-5deg);
+}
+#txt-e-nav {
+  font-size: 1.5rem;
+  margin-top: -1.5rem;
+  margin-left: 6rem;
+}
+#txt-pro-nav {
+  font-size: 1.5rem;
+  margin-top: -1rem;
+  margin-left: 2rem;
+}
+#txt-meu-nav {
+  font-size: 3rem;
+  margin-left: 1rem;
+  margin-top: -1.5rem;
+}
+#txt-tcc-nav {
+  font-size: 4rem;
+  margin-left: 7rem;
+  margin-top: -5rem;
+  transform: rotate(7deg);
+}
+
+.side-nav li>a {
+  font-size: 1.3rem;
+}
+a.page-title {
+  font-size: 2rem;
+}
+
+.comment {
+  font-style: italic;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+.comment, h4, h1 {
+  font-family: 'Zilla Slab', serif;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.slider .slides li {
+  background: #fff;
+  opacity: 1;
+}
+.slider .slides li .caption {
+  color: #333;
+}
+
+.textarea {
+  max-height: 300px;
+  overflow-y: auto !important;
+  border: 1px solid #ccc !important;
+}
+
+.destaque {
+  color: #ee6e73;
+}
+.ul-normal {
+  list-style-type: disc !important;
+}
+.li-normal{
+  height: auto;
+  padding: 10px;
+  list-style-type: disc !important;
+}
+#outro-genero {
+  width: auto;
+  height: auto;
+  margin: 0px 0 20px 5px;
+}
+.tabs .indicator {
+  background-color: rgba(246, 178, 181, 0.4);
+}
+.error {
+  visibility: hidden;
+  background: #ffdd88;
+  font-weight: bold;
+  border: 2px solid #f9a01b;
+  margin: 10px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+}
+.side-nav li.active {
+  background-color: rgba(238, 110, 115, 0.3);
+}

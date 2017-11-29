@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load filters %}
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'pagina/css/materialize.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'pagina/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'pagina/css/inside-pages.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TCC - Larissa Barra Conde</title>
+</head>
+<body>
+  <header>
+    <nav class="top-nav">
+      <div class="container">
+        <div class="nav-wrapper"><a class="page-title">Faça um teste</a></div>
+      </div>
+    </nav>
+    <div class="container">
+      <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+    <ul id="nav-mobile" class="side-nav fixed">
+      <div id="txt-nav">
+        <span id="txt-ajuda-nav">Ajuda, </span>
+        <span id="txt-e-nav">é </span>
+        <span id="txt-pro-nav">pro </span>
+        <span id="txt-meu-nav">meu </span>
+        <span id="txt-tcc-nav">TCC!</span>
+      </div>
+      <li><a href="{% url 'tcc:index' %}">Início</a></li>
+      <li><a href="{% url 'tcc:proposta' %}">A proposta</a></li>
+      <li><a href="{% url 'tcc:teoria' %}">A teoria</a></li>
+      <li><a href="{% url 'tcc:algoritmo' %}">O algoritmo</a></li>
+      <li class="active"><a href="{% url 'tcc:teste' %}">Faça um teste</a></li>
+      <li><a href="{% url 'tcc:avalie' %}">Avalie resumos</a></li>
+    </ul>
+  </header>
+  <main>
+    <div class="container">
+      <br/>
+      <h4>Testando</h4>
+      <p>Siga os passos abaixo para gerar 3 sumários para o seu texto. Depois, escolha o melhor e <strong>vote</strong> (por favorzinho, essa é a parte mais importante)!</p>
+      <form action="{% url 'tcc:teste' %}" method="post" onsubmit="return validateForm()">
+          {% csrf_token %}
+          <br/>
+          <div>
+            <h5>Qual é o gênero do seu texto?</h5>
+            <input type="radio" name="genero" id="artigo" value="13"/>
+            <label for="artigo">Artigo científico</label><br/>
+            <input type="radio" name="genero" id="noticia" value="14"/>
+            <label for="noticia">Notícia</label><br/>
+            <input type="radio" name="genero" id="outro" value="15"/>
+            <label for="outro">Outro: <input type="text" id="outro-genero" name="outro-genero"/></label>
+          </div>
+          <br/>
+          <div>
+            <h5>Coloca o texto aqui:</h5>
+            <textarea name="texto" id="texto" class="textarea materialize-textarea"></textarea>
+          </div>
+          <br/>
+          <div>
+            <h5>E, finalmente:</h5>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Teste!</button>
+          </div>
+          <br/>
+          <div class="error">Faltou informar um gênero!</div>
+      </form>
+    </div>
+  </main>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Larissa Barra Conde</h5>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Engenharia de Computação 2017/2 - CEFET-MG
+      </div>
+    </div>
+  </footer>
+
+{% block footer %}
+  <script type="text/javascript" src="{% static 'pagina/js/jquery-3.2.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'pagina/js/materialize.min.js' %}"></script>
+  <script type="text/javascript">
+    $('.button-collapse').sideNav({
+        menuWidth: 300, // Default is 300
+        edge: 'left', // Choose the horizontal origin
+        closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        draggable: true
+    });
+    $('#outro-genero').on('focus', function() {
+      $('#outro').prop("checked", true);
+    });
+    function validateForm() {
+      if ($("#texto").val() == "") {
+        $(".error p").text("Faltou o texto!");
+        $(".error").css("visibility", "visible");
+        return false;
+      }
+      if (!$("input:radio[name='genero']").is(":checked")) {
+        $(".error p").text("Faltou informar um gênero!");
+        $(".error").css("visibility", "visible");
+        return false;
+      } else if ($('#outro').is(':checked') && $("#outro-genero").val() == "") {
+        $(".error").css("visibility", "visible");
+        return false;
+      }
+      return true;
+    }
+  </script>
+{% endblock %}
+</body>
+</html>
