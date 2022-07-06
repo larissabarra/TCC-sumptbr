@@ -20,7 +20,7 @@ gensim==2.2.0
 gunicorn==19.7.1
 idna==2.5
 jmespath==0.9.3
-lxml==3.8.0
+lxml==4.9.1
 networkx==1.11
 nltk==3.2.4
 numpy==1.13.0
